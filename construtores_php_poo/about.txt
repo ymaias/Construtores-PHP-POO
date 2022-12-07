@@ -1,0 +1,65 @@
+Aula 26/11/2022 - Pesquisa
+
+1- Construtores PHP
+2- Métodos GET e SET 
+3- Modificadores de acesso{
+    - Public
+    - Protected
+    - Private
+}
+
+
+Construtores PHP POO:
+
+O método construtor é invocado com o operador new.
+Até então ao criar a classe definimos atributo por atributo.
+Mas é possível criar o objeto já com os atributos definidos, utilizando de uma linha de código somente. Exemplo:
+
+$emanuel = new Aluno;
+$emanuel->setNome("Emanuel");
+$emanuel->setIdade(19);
+$emanuel->setPeriodo(1);
+
+forma simplificada com o método construtor:
+$emanuel = new Aluno("Emanuel", 19, 1);
+
+considerações:
+- Os métodos construtores precisam ser públicos, pois serão acessados de fora a classe.
+- Um dos métodos deve ser usado, nunca os dois juntos.
+- Utilizar os os sets para colocar valores nos atributos.
+- Esta forma de construção de classe, utilizando o método, é mais eficaz, contribuindo para um maior aproveitamento de código.
+- Ao instanciar a classe, com o operador new, passar os parâmetros necessários ao construtor.
+- Por fim, no método construtor pode ser chamado outros métodos da classe, ou seja, se você quiser e houver a necessidade, você pode colocar regras para inserir os dados etc. 
+
+
+
+Visibilidade:
+
+Public: Qualquer "pessoa" possui acesso.
+Private: Somente a classe específica possui acesso.
+Protected: Somente "pessoas" autorizadas.
+
+
+Métodos Especiais GET e SET:
+
+Acessar os atributos diretamente não é uma boa prática. Por isso, se desenvolveu o hábito de criar os métodos get (pegar) e set (definir) para cada atributo da classe.
+
+- Acessando um atributo diretamente:
+$emanuel = new Aluno;
+$emanuel->nome = "Emanuel";
+
+- Acessando um atributo utilizando os métodos get e set:
+$emanuel = new Aluno;
+$emanuel->setNome("Emanuel");
+
+echo "O aluno {$emanuel->getNome()} é muito estudioso";
+
+Considerações:
+
+- Os métodos especiais devem ser públicos, pois eles serão acessados de fora das classes.
+- A palavra reservada $this é usada para quando se refere a classe, de dentro dela. Ou seja, quando eu escrevo return $this->nome, é como se eu escrevesse: return Aluno->nome.
+- Os métodos gets sempre retornam algo e o métodos sets sempre manipulam o atributo e insere valor dentro deles, por isso, tais métodos recebem parâmetros que serão alocados aos atributos.
+- Por fim, tais métodos são uma forma de acessar ou manipular os atributos que não são públicos. Porem, é recomendado que mesmo os públicos precisam de tais métodos para acessá-los ou manipulá-los.
+
+
+Fonte: https://medium.com/emanuelg-blog/tagged/php
